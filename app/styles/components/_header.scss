@@ -1,0 +1,38 @@
+div.header {
+	width: 70%;
+  height: 4rem;
+	background-color: $dark-brown-2;
+	float: left;
+	border-left: 1px solid $dark-brown-1;
+	border-top: 1px solid $dark-brown-1;
+	border-top-left-radius: 5px;
+}
+
+p.header-label {
+	padding: 0.8rem 1rem;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	font-size: 1.5rem;
+	color: $light-brown-6;
+}
+
+div.header-icon-div {
+	width: 30%;
+	height: 4rem;
+	background-color: $dark-brown-2;
+	float: left;
+	border-right: 1px solid $dark-brown-1;
+	border-top: 1px solid $dark-brown-1;
+	border-top-right-radius: 5px;
+}
+
+p.header-icon {
+	height: 100%;
+	padding: 0.8rem 0.7rem;
+	margin: 0;
+	float: right;
+	font-size: 1.5rem;
+	color: $light-brown-6;
+	cursor: pointer;
+}
