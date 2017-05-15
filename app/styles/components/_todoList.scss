@@ -2,6 +2,7 @@ div.todo-list {
   width: 100%;
 	height: 100%;
   border: 1px solid $light-grey;
+  border-top: none;
   border-radius: 5px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

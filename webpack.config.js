@@ -29,6 +29,7 @@ module.exports = {
       Inputer: 'app/components/Inputer.js',
       TodoList: 'app/components/TodoList.js',
       TodoRow: 'app/components/TodoRow.js',
+      AddBar: 'app/components/AddBar.js',
       SearchBar: 'app/components/SearchBar.js'
     },
     extensions: ['', '.jsx', '.js']

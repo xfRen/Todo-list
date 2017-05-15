@@ -6,11 +6,9 @@ var SearchBar = React.createClass({
   },
   render: function() {
     return (
-      <div className='search-bar'>
-        <input type='text' className='search-input'
-          placeholder='Search'
-          onChange={this.onChange}/>
-      </div>
+      <input type='text' className='search-input'
+        placeholder='Search'
+        onChange={this.onChange}/>
     );
   },
   onChange: function(event) {

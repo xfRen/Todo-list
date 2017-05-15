@@ -1,7 +1,6 @@
 const React = require('react');
 const Header = require('Header');
 const Inputer = require('Inputer');
-const SearchBar = require('SearchBar');
 const TodoList = require('TodoList');
 
 var Main = React.createClass({
@@ -13,7 +12,7 @@ var Main = React.createClass({
         {id: 3, text: "realise that you've already accomplished two things on the list."}
       ],
       todos: [],
-      showInputer: true
+      showAddBar: true
     };
   },
   componentWillMount: function() {
@@ -22,19 +21,11 @@ var Main = React.createClass({
     });
   },
   render: function() {
-    var self = this;
-    var {todos, showInputer} = self.state;
-    function rendererInputer() {
-      if (showInputer) {
-        return (<Inputer onEnter={self.onEnter}/>);
-      } else {
-        return (<SearchBar onSearch={self.onSearch}/>);
-      }
-    }
+    var {todos, showAddBar} = this.state;
     return (
       <div className='main-div'>
         <Header onClickPlus={this.onClickPlus} onClickSearch={this.onClickSearch}/>
-        {rendererInputer()}
+        <Inputer showAddBar={showAddBar} onEnter={this.onEnter} onSearch={this.onSearch}/>
         <TodoList todos={todos}/>
       </div>
     );
@@ -55,13 +46,13 @@ var Main = React.createClass({
   },
   onClickPlus: function() {
     this.setState({
-      showInputer: true,
+      showAddBar: true,
       todos: this.state.initialTodos
     });
   },
   onClickSearch: function() {
     this.setState({
-      showInputer: false
+      showAddBar: false
     });
   },
   onSearch: function(value) {
