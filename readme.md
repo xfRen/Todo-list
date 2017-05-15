@@ -18,6 +18,6 @@
     <td><a href="https://git-scm.com/" target="_blank"><img src="logo/git-logo.png" height="60px" /></a></td>
     <td><a href="https://nodejs.org/en/" target="_blank"><img src="logo/nodejs-logo.png" height="60px" /></a></td>
     <td><a href="http://expressjs.com/" target="_blank"><img src="logo/expressjs-logo.png" height="60px" /></a></td>
-    <td><a href="https://nameless-fortress-24238.herokuapp.com/" target="_blank"><img src="logo/heroku-logo.png" height="60px" /></a></td>
+    <td><a href="https://stark-peak-88089.herokuapp.com/" target="_blank"><img src="logo/heroku-logo.png" height="60px" /></a></td>
   </tr>
 </table>
