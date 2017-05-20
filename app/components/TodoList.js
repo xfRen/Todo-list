@@ -3,13 +3,14 @@ const TodoRow = require('TodoRow');
 
 var List = React.createClass({
   propTypes: {
-    todos: React.PropTypes.array.isRequired
+    todos: React.PropTypes.array.isRequired,
+    onToggle: React.PropTypes.func.isRequired
   },
   render: function() {
-    var {todos} = this.props;
+    var {todos, onToggle} = this.props;
     const todoRows = todos.map(function(todo) {
       return (
-        <TodoRow key={todo.id} text={todo.text}/>
+        <TodoRow key={todo.id} {...todo} onToggle={onToggle}/>
       );
     });
     return (

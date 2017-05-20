@@ -2,16 +2,19 @@ const React = require('react');
 
 var ListItem = React.createClass({
   propTypes: {
-    text: React.PropTypes.string.isRequired
+    id: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string.isRequired,
+    completed: React.PropTypes.bool.isRequired,
+    onToggle: React.PropTypes.func.isRequired
   },
   render: function() {
-    var {text} = this.props;
+    var {id, text} = this.props;
     return (
       <div className='todo-row'
         onMouseMove={this.onMouseMove}
         onMouseLeave={this.onMouseLeave}
         ref='todoRow'>
-        <div className='todo-row-text-container' onClick={this.onTodoRowTextContainer}>
+        <div className='todo-row-text-container' onClick={() => { this.onTodoRowTextContainer(id) }}>
           <p className='todo-row-text'>{text}</p>
         </div>
         <div className='todo-row-trash-container'>
@@ -24,6 +27,10 @@ var ListItem = React.createClass({
     var todoRow = this.refs.todoRow;
     var todoRowTextContainer = $(todoRow).find('.todo-row-text-container');
     $(todoRow).css('height', $(todoRowTextContainer).outerHeight() + 'px');
+    if (this.props.completed) {
+      var todoRowText = $(todoRow).find('.todo-row-text');
+      $(todoRowText).addClass('strikeThrough');
+    }
   },
   onMouseMove: function() {
     var todoRow = this.refs.todoRow;
@@ -31,10 +38,6 @@ var ListItem = React.createClass({
     $(todoRowTrashContainer).css('width', '10%');
     var trashIcon = $(todoRow).find('i');
     $(trashIcon).css({display: 'table-cell', verticalAlign: 'middle'});
-    // var todoRowTrash = $(todoRowTrashContainer).find('.todo-row-trash');
-    // var todoRowTrashPadding = ($(todoRowTrashContainer).outerWidth() - $(trashIcon).outerWidth()) / 2;
-    // $(todoRowTrash).css('padding-left', todoRowTrashPadding + 'px');
-    // $(todoRowTrash).css('padding-right', todoRowTrashPadding + 'px');
   },
   onMouseLeave: function() {
     var todoRow = this.refs.todoRow;
@@ -43,10 +46,11 @@ var ListItem = React.createClass({
     var trashIcon = $(todoRow).find('i');
     $(trashIcon).css('display', 'none');
   },
-  onTodoRowTextContainer: function() {
+  onTodoRowTextContainer: function(id) {
     var todoRow = this.refs.todoRow;
     var todoRowText = $(todoRow).find('.todo-row-text');
     $(todoRowText).toggleClass('strikeThrough');
+    this.props.onToggle(id);
   }
 });
 

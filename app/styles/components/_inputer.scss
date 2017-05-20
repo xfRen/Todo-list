@@ -1,41 +1,75 @@
 div.inputer {
-	height: 7rem;
 	padding-top: 0.1rem;
-	background-color: $dark-brown-2;
-	border-left: 1px solid $dark-brown-1;
-	border-right: 1px solid $dark-brown-1;
+	padding-bottom: 0.2rem;
+	background-color: $inputer-background-color;
+	border-left: 1px solid $inputer-border-color;
+	border-right: 1px solid $inputer-border-color;
 }
 
 input.add-input {
 	width: 95%;
 	height: 3rem;
 	font-size: 1.2rem;
-	color: white;
+	color: $input-content-color;
   margin: 0.5rem auto;
 	border: none;
-	background-color: #505050;
-}
+	font-family: 'Raleway', sans-serif;
+	background-color: $input-background-color;
 
-input.add-input:focus {
-	outline: none;
-  box-shadow: none;
-	background-color: #505050;
-	color: white;
+	&:focus {
+		outline: none;
+	  box-shadow: none;
+		background-color: $input-background-color;
+	}
 }
 
 input.search-input {
 	width: 95%;
 	height: 3rem;
 	font-size: 1.2rem;
-	color: white;
+	color: $input-content-color;
 	margin: 0.5rem auto;
 	border: none;
-	background-color: #505050;
+	font-family: 'Raleway', sans-serif;
+	background-color: $input-background-color;
+
+	&:focus {
+		outline: none;
+	  box-shadow: none;
+		background-color: $input-background-color;
+	}
 }
 
-input.search-input:focus {
-	outline: none;
-  box-shadow: none;
-	background-color: #505050;
-	color: white;
+div.tab-group {
+	margin-top: 2rem;
+	display: flex;
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+div.tab {
+	width: 30%;
+	height: 2.5rem;
+	text-align: center;
+	padding-top: 0.4rem;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	color: $tab-span-color;
+	font-family: 'Poppins', sans-serif;
+
+	&:hover {
+		border-bottom: 0.3rem solid $tab-hover-border-color;
+	}
+}
+
+div.active-tab {
+	width: 30%;
+	height: 2.5rem;
+	color: $tab-active-span-color;
+	letter-spacing: 0.1rem;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 0.4rem;
+	font-family: 'Poppins', sans-serif;
+	border-bottom: 0.3rem solid $tab-active-border-color;
 }

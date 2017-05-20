@@ -1,15 +1,17 @@
 div.header-div {
 	height: 4rem;
+	display: flex;
+	justify-content: space-between;
+	background-color: $header-background-color;
+	border-left: 1px solid $header-border-color;
+	border-top: 1px solid $header-border-color;
+	border-right: 1px solid $header-border-color;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 div.header {
-	width: 70%;
   height: 4rem;
-	background-color: $dark-brown-2;
-	float: left;
-	border-left: 1px solid $dark-brown-1;
-	border-top: 1px solid $dark-brown-1;
-	border-top-left-radius: 5px;
 }
 
 p.header-label {
@@ -18,25 +20,34 @@ p.header-label {
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	font-size: 1.5rem;
-	color: $light-brown-6;
+	font-family: 'Poppins', sans-serif;
+	color: $header-content-color;
 }
 
 div.header-icon-div {
-	width: 30%;
+	display: flex;
+	align-items: center;
 	height: 4rem;
-	background-color: $dark-brown-2;
-	float: left;
-	border-right: 1px solid $dark-brown-1;
-	border-top: 1px solid $dark-brown-1;
-	border-top-right-radius: 5px;
+	padding-right: 10px;
 }
 
-p.header-icon {
-	height: 100%;
-	padding: 0.8rem 0.7rem;
-	margin: 0;
-	float: right;
+div.header-icon {
+	width: 2rem;
+	height: 2rem;
 	font-size: 1.5rem;
-	color: $light-brown-6;
+	color: $header-content-color;
 	cursor: pointer;
+	display: flex;
+	justify-content: space-around;
+	border-radius: 3px;
+}
+
+div#header-plus {
+	margin-right: 10px;
+	background-color: $header-plus-background-color;
+	transition: background-color 0.25s ease-out;
+
+	&:hover {
+		background-color: scale-color($header-plus-background-color, $lightness: -15%);
+	}
 }

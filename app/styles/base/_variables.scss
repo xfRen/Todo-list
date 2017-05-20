@@ -1,10 +1,36 @@
 // colors
+$blue: #1779ba;
 $dark-brown-1: #222222;
 $dark-brown-2: #2d2d2d;
-
-$light-brown-5: #f8f5ec;
-$light-brown-6: #f9f9f9;
-
+$dark-grey: #505050;
+$light-brown: #f9f9f9;
 $light-grey: #cacaca;
-
 $white: #ffffff;
+
+// header colors
+$header-background-color: $dark-brown-2;
+$header-border-color: $dark-brown-1;
+$header-content-color: $light-brown;
+$header-hover-background-color: $dark-grey;
+$header-plus-background-color: $blue;
+
+// inputer colors
+$inputer-background-color: $dark-brown-2;
+$inputer-border-color: $dark-brown-1;
+$input-background-color: $dark-grey;
+$input-content-color: $white;
+$tab-active-span-color: $dark-brown-2;
+$tab-span-color: scale-color($dark-grey, $lightness: + 50%);
+$tab-active-span-color: scale-color($blue, $lightness: + 40%);
+$tab-hover-border-color: scale-color($dark-grey, $lightness: + 20%);
+$tab-active-border-color: scale-color($blue, $lightness: + 30%);
+
+// todo list colors
+$todo-list-border-color: scale-color($blue, $lightness: +30%);
+$todo-list-background-color: $white;
+
+// todo row colors
+$todo-row-background-color: $white;
+$todo-row-hover-background-color: scale-color($blue, $lightness: +90%);
+$todo-row-border: $light-grey;
+$todo-row-trash-color: $dark-brown-2;

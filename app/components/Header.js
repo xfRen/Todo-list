@@ -13,8 +13,8 @@ var Header = React.createClass({
           <p className='header-label'>to-do list</p>
         </div>
         <div className='header-icon-div'>
-          <p className='header-icon' id='header-search' onClick={onClickSearch}><i className='fi-magnifying-glass'></i></p>
-    			<p className='header-icon' id='header-plus' onClick={onClickPlus}><i className='fi-plus'></i></p>
+          <div className='header-icon' id='header-plus' onClick={onClickPlus}><i className='fi-plus'></i></div>
+          <div className='header-icon' id='header-search' onClick={onClickSearch}><i className='fi-magnifying-glass'></i></div>
     		</div>
       </div>
     );

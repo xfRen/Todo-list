@@ -1,71 +1,84 @@
 const React = require('react');
+const uuid = require('uuid');
 const Header = require('Header');
 const Inputer = require('Inputer');
 const TodoList = require('TodoList');
+const Filter = require('Filter');
 
 var Main = React.createClass({
   getInitialState: function() {
     return {
-      initialTodos: [
-        {id: 1, text: 'make a to do list.'},
-        {id: 2, text: 'strike through the first thing on the to do list.'},
-        {id: 3, text: "realise that you've already accomplished two things on the list."}
+      todos: [
+        {id: uuid(), text: 'make a to do list.', completed: false},
+        {id: uuid(), text: 'strike through the first thing on the to do list.', completed: false},
+        {id: uuid(), text: "realise that you've already accomplished two things on the list.", completed: false}
       ],
-      todos: [],
-      showAddBar: true
+      showAddBar: true,
+      searchText: '',
+      showAll: false
     };
   },
-  componentWillMount: function() {
-    this.setState({
-      todos: this.state.initialTodos
-    });
-  },
   render: function() {
-    var {todos, showAddBar} = this.state;
+    var {todos, showAddBar, searchText, showAll} = this.state;
+    var filteredTodos = Filter.filterTodos(todos, showAll, searchText);
     return (
       <div className='main-div'>
-        <Header onClickPlus={this.onClickPlus} onClickSearch={this.onClickSearch}/>
-        <Inputer showAddBar={showAddBar} onEnter={this.onEnter} onSearch={this.onSearch}/>
-        <TodoList todos={todos}/>
+        <Header onClickPlus={this.handleClickPlus} onClickSearch={this.handleClickSearch}/>
+        <Inputer showAddBar={showAddBar} onEnter={this.handleEnter}
+          onSearch={this.handleSearch} onTabNew={this.handleTabNew}
+          onTabAll={this.handleTabAll}/>
+        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
       </div>
     );
   },
-  onEnter: function(value) {
+  handleEnter: function(value) {
     if (typeof value !== 'string' || value.length === 0) {
       return;
     }
-    var {initialTodos} = this.state;
-    var id = initialTodos.length + 1;
+    var {todos} = this.state;
+    var id = uuid();
     var text = value;
-    var todo = {id: id, text: text};
-    initialTodos.push(todo);
+    var todo = {id: id, text: text, completed: false};
+    todos.push(todo);
     this.setState({
-      initialTodos: initialTodos,
-      todos: initialTodos
+      todos: todos
     });
   },
-  onClickPlus: function() {
+  handleClickPlus: function() {
     this.setState({
       showAddBar: true,
-      todos: this.state.initialTodos
+      searchText: ''
     });
   },
-  onClickSearch: function() {
+  handleClickSearch: function() {
     this.setState({
       showAddBar: false
     });
   },
-  onSearch: function(value) {
-    var {initialTodos} = this.state;
-    var filteredTodos = initialTodos.filter(function(todo) {
-      var text = todo.text;
-      if (text.toLowerCase().search(value.toLowerCase()) !== -1) {
-        return true;
+  handleSearch: function(value) {
+    this.setState({
+      searchText: value
+    });
+  },
+  handleToggle: function(id) {
+    var updatedTodos = this.state.todos.map(function(todo) {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
       }
-      return false;
+      return todo;
     });
     this.setState({
-      todos: filteredTodos
+      todos: updatedTodos
+    });
+  },
+  handleTabNew: function() {
+    this.setState({
+      showAll: false
+    });
+  },
+  handleTabAll: function() {
+    this.setState({
+      showAll: true
     });
   }
 });

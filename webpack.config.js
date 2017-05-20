@@ -30,7 +30,8 @@ module.exports = {
       TodoList: 'app/components/TodoList.js',
       TodoRow: 'app/components/TodoRow.js',
       AddBar: 'app/components/AddBar.js',
-      SearchBar: 'app/components/SearchBar.js'
+      SearchBar: 'app/components/SearchBar.js',
+      Filter: 'app/api/Filter.js'
     },
     extensions: ['', '.jsx', '.js']
   },
