@@ -40,14 +40,9 @@ div.header-icon {
 	display: flex;
 	justify-content: space-around;
 	border-radius: 3px;
-}
-
-div#header-plus {
-	margin-right: 10px;
-	background-color: $header-plus-background-color;
 	transition: background-color 0.25s ease-out;
 
 	&:hover {
-		background-color: scale-color($header-plus-background-color, $lightness: -15%);
+		background-color: $header-hover-background-color;
 	}
 }
